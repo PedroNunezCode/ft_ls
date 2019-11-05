@@ -2,11 +2,19 @@ NAME = ft_ls
 
 COMPILER = gcc
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra
 
 SRCS =	 ./srcs/main \
 				./srcs/struct_setup \
-				./srcs/flags
+				./srcs/flags \
+				./srcs/directories \
+				./srcs/run_program \
+				./srcs/handle_errors \
+				./srcs/print_with_R_flag \
+				./srcs/sort \
+				./srcs/folder_sort_functions \
+				./srcs/helpers \
+				./srcs/recursion-helpers
 
 
 

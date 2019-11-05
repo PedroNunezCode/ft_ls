@@ -6,11 +6,16 @@
 /*   By: pnunez <pedronunezcode>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/26 18:06:15 by pnunez            #+#    #+#             */
-/*   Updated: 2019/10/29 18:33:37 by pnunez           ###   ########.fr       */
+/*   Updated: 2019/10/30 18:46:57 by pnunez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_ls.h"
+
+/**
+ * This function handles setting up the flag stucture then cleaning up
+ * garbage memory.
+ **/
 
 void setup_flag_structure(t_info *program_info)
 {
@@ -31,30 +36,13 @@ void setup_flag_structure(t_info *program_info)
         else if(program_info->string_flags[i] == 't')
             program_info->flag_struct->t = true;
     }
-    printf("R flag: %d\n", program_info->flag_struct->cr);
-    printf("l flag: %d\n", program_info->flag_struct->l);
-    printf("a flag: %d\n", program_info->flag_struct->a);
-    printf("r flag: %d\n", program_info->flag_struct->r);
-    printf("t flag: %d\n", program_info->flag_struct->t);
-}
-
-int valid_flag(char flag)
-{
-    if (flag == 'a' || flag == 'l' || flag == 'R' || flag == 'r' || flag == 't')
-        return 1;
-    else
-    {
-        ft_putstr("ls: illegal option -- ");
-        ft_putchar(flag);
-        ft_putstr("\n");
-        ft_putstr("usage: ls [-lRart] [ File ...]\n");
-        exit(0);
-        //Call function to clean memory
-    }
+    free(program_info->string_flags);
 }
 
 /*
-* This function handles saving the flags into the string_flags array.
+**  This function handles saving the flags into the string_flags array.
+**  this will be used to create the flag structure. Thus allowing me to
+** easily check the flags down the road.
 */
 
 void store_string_flags(char *av[], t_info *program_info)
@@ -109,8 +97,9 @@ int count_flags(char *av[], int *directory_start)
 }
 
 /*
-* This function will handle the flags passed in from argv. first it will count the flags,
-* then set the directory start. and then store the flags if any.
+** This function handles multiple things, first it counts the flags to see if there is any.
+** Second if there is flags, It will store the flags and the thanks to that function,
+** I then setup a different struct so i can free memory.
 */
 void handle_flags(t_info *program_info, char *av[])
 {
