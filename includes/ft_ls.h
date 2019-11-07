@@ -6,7 +6,7 @@
 /*   By: pnunez <pedronunezcode>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 12:45:31 by pnunez            #+#    #+#             */
-/*   Updated: 2019/11/04 21:08:11 by pnunez           ###   ########.fr       */
+/*   Updated: 2019/11/06 17:43:23 by pnunez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void store_directories(t_info *program_info, char *av[]);
 void store_root_directory(t_info *program_info);
 void process_directories(t_info *program_info);
 void handle_capital_r_flag(DIR *directory, t_info *program_info);
-void start_output(DIR *directory, t_info *program_info, int i);
+// void start_output(DIR *directory, t_info *program_info, int i);
 void access_error(char *directory);
 void recursive_directory_print(char *dir, t_flags *flags, int i);
 void print_path(char *path);
@@ -79,5 +79,7 @@ int non_chr_blk(struct stat *filestats, struct passwd *psswd,
                 struct group *grp);
 void continue_nonchr_print(char *tmp, char *name);
 void print_perms(struct stat *filestats);
+void start_output(DIR *directory_stream, t_info *program_info, int i);
+void simple_output(char *directory, t_flags *flags, int i);
 
 #endif

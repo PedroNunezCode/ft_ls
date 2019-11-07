@@ -22,6 +22,10 @@ void sps(char *name, t_flags *flags, char *path)
             continue_nonchr_print(tmp, name);
         ft_putstr("\n");
     }
+    else
+        ft_putendl(name);
+    
+    free(filestats);
 }
 
 void print_l_num(char **folders, t_flags *flags, char *path, int i)

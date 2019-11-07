@@ -6,7 +6,7 @@
 /*   By: pnunez <pedronunezcode>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 12:27:26 by pnunez            #+#    #+#             */
-/*   Updated: 2019/11/04 19:04:42 by pnunez           ###   ########.fr       */
+/*   Updated: 2019/11/06 18:24:09 by pnunez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,9 +113,6 @@ void time_sort(char **folders)
             i = 1;
         }
     }
-    i = -1;
-    while (folders[++i])
-        ft_putendl(folders[i]);
 }
 
 /**

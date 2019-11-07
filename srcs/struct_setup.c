@@ -6,7 +6,7 @@
 /*   By: pnunez <pedronunezcode>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/26 17:47:02 by pnunez            #+#    #+#             */
-/*   Updated: 2019/10/30 18:16:10 by pnunez           ###   ########.fr       */
+/*   Updated: 2019/11/06 17:49:12 by pnunez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,13 @@ t_info *no_argument_setup(void)
     program_info->directories = malloc(sizeof(char *) * 2);
     program_info->directories[0] = ft_strdup(".");
     program_info->directories[1] = NULL;
+
+    program_info->flag_struct = malloc(sizeof(t_flags));
+    program_info->flag_struct->cr = 0;
+    program_info->flag_struct->l = 0;
+    program_info->flag_struct->a = 0;
+    program_info->flag_struct->r = 0;
+    program_info->flag_struct->t = 0;
 
     return(program_info);
 }

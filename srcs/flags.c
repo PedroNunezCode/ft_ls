@@ -6,7 +6,7 @@
 /*   By: pnunez <pedronunezcode>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/26 18:06:15 by pnunez            #+#    #+#             */
-/*   Updated: 2019/10/30 18:46:57 by pnunez           ###   ########.fr       */
+/*   Updated: 2019/11/06 14:01:56 by pnunez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,15 @@ void setup_flag_structure(t_info *program_info)
      while (program_info->num_of_flags > ++i)
     {
         if(program_info->string_flags[i] == 'R')
-            program_info->flag_struct->cr = true;
+            program_info->flag_struct->cr = 1;
         else if(program_info->string_flags[i] == 'l')
-            program_info->flag_struct->l = true;
+            program_info->flag_struct->l = 1;
         else if(program_info->string_flags[i] == 'a')
-            program_info->flag_struct->a = true;
+            program_info->flag_struct->a = 1;
         else if(program_info->string_flags[i] == 'r')
-            program_info->flag_struct->r = true;
+            program_info->flag_struct->r = 1;
         else if(program_info->string_flags[i] == 't')
-            program_info->flag_struct->t = true;
+            program_info->flag_struct->t = 1;
     }
     free(program_info->string_flags);
 }

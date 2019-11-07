@@ -5,11 +5,10 @@ char *create_path(char *path, char *new_path)
     char *info;
 
     info = malloc(sizeof(char) * (strlen(path) + strlen(new_path) + 2));
-    ft_strcpy(info, path);
+    info = ft_strcpy(info, path);
     ft_strcat(info, "/");
     ft_strcat(info, new_path);
 
-    // printf(" this be the directory: %s\n", info);
     return (info);
 }
 

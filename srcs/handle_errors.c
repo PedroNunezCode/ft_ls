@@ -6,7 +6,7 @@
 /*   By: pnunez <pedronunezcode>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 18:46:28 by pnunez            #+#    #+#             */
-/*   Updated: 2019/11/04 21:27:00 by pnunez           ###   ########.fr       */
+/*   Updated: 2019/11/04 21:30:09 by pnunez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void access_error(char *directory)
 
 void print_path(char *path)
 {
+    // ft_putstr("./");
     ft_putstr(path);
     ft_putendl(":");
 }
