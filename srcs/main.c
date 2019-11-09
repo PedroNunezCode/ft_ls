@@ -22,7 +22,5 @@ int main(int argc, char **argv)
         program_info = setup_program_info(argv);
     
     process_directories(program_info);
-    
     return (0);
-    
 }

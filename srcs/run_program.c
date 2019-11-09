@@ -75,4 +75,13 @@ void process_directories(t_info *program_info)
         else
             start_output(directory, program_info, i);
     }
+    i = 0;
+	while (program_info->directories[i])
+	{
+		free(program_info->directories[i]);
+		i++;
+	}
+	free(program_info->directories);
+	free(program_info->flag_struct);
+    free(program_info);
 }

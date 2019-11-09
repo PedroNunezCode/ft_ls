@@ -63,7 +63,7 @@ char **sorted_folders(DIR *dir_stream, t_flags *flags, int i);
 void sort_folders(char **folders, t_flags *flags, int num_of_folders);
 void reverse_sort(char **folders, int num_of_folders);
 void alpha_sort(char **folders, int num_of_folders);
-void time_sort(char **folders);
+void time_sort(char **folders, int num_of_folders);
 void reverse_time_sort(char **folders, int num_of_folders);
 int modification_time(char *file1, char *file2);
 char *create_path(char *path, char *new_path);

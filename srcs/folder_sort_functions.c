@@ -20,17 +20,17 @@ int modification_time(char *f1, char *f2)
 {
     struct stat *file1;
     struct stat *file2;
-    double seconds;
+    long long int seconds;
 
     file1 = malloc(sizeof(struct stat));
     file2 = malloc(sizeof(struct stat));
 
     lstat(f1, file1);
     lstat(f2, file2);
-    seconds = difftime(file1->st_mtime, file2->st_mtime);
-    if (seconds == 0)
-        seconds = difftime(file1->st_mtimespec.tv_nsec,
-                           file2->st_mtimespec.tv_nsec);
+    seconds = difftime(file1->st_mtimespec.tv_sec, file2->st_mtimespec.tv_sec);
+        if (seconds == 0)
+        seconds = file1->st_mtimespec.tv_nsec -
+                  file2->st_mtimespec.tv_nsec;
     free(file1);
     free(file2);
 
@@ -38,7 +38,7 @@ int modification_time(char *f1, char *f2)
         return (-1);
     else if (seconds > 0)
         return (1);
-    return (0);
+    return (1);
 }
 
 /**
@@ -97,20 +97,24 @@ void alpha_sort(char **folders, int num_of_folders)
  *  in seconds if nano seconds if necessary.
  **/
 
-void time_sort(char **folders)
+void time_sort(char **folders, int num_of_folders)
 {
     int i;
+    int j;
     char *tmp;
 
-    i = 0;
-    while (folders[++i])
+    i = -1;
+    while (++i < num_of_folders - 1)
     {
-        if (modification_time(folders[i - 1], folders[i]) < 0)
+        j = -1;
+        while (++j < num_of_folders - i - 1)
         {
-            tmp = folders[i];
-            folders[i] = folders[i - 1];
-            folders[i - 1] = tmp;
-            i = 1;
+            if (modification_time(folders[j], folders[j + 1]) < 0)
+            {
+                tmp = folders[j + 1];
+                folders[j + 1] = folders[j];
+                folders[j] = tmp;
+            }
         }
     }
 }

@@ -12,16 +12,6 @@
 
 #include "../includes/ft_ls.h"
 
-// char **sort_root_folder(DIR *dir, t_flags *flags, int i)
-// {
-//     struct dirent *der;
-//     char **sorted_folders;
-
-//     while((der = readdir(dir)) != NULL)
-//         i++;
-//     rewinddir()
-// }
-
 void sort_folders(char **folders, t_flags *flags, int num_of_folders)
 {
     if (flags->r == 1 && flags->t != 1)
@@ -29,7 +19,7 @@ void sort_folders(char **folders, t_flags *flags, int num_of_folders)
     else if(flags-> r != 1 && flags-> t != 1)
         alpha_sort(folders, num_of_folders);
     else if(flags->r != 1 && flags->t == 1)
-        time_sort(folders);
+        time_sort(folders, num_of_folders);
     else if(flags->r == 1 && flags-> t == 1)
         reverse_time_sort(folders, num_of_folders);
 }
