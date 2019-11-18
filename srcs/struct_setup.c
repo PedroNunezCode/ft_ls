@@ -12,6 +12,10 @@
 
 #include "../includes/ft_ls.h"
 
+/**
+ * This function handles the flag parsing and flag struct allocation.
+ * This will also parse the parameters and store them in double pointer.
+*/
 t_info	*setup_program_info(char *av[])
 {
 	t_info *program_info;
@@ -21,6 +25,11 @@ t_info	*setup_program_info(char *av[])
 	handle_directories(program_info, av);
 	return (program_info);
 }
+
+/*
+** The following function will allocate the program info struct and set a few default settings
+** for the rest of the program.
+*/
 
 t_info	*no_argument_setup(void)
 {

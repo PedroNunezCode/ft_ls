@@ -38,7 +38,7 @@ clean:
 	@make -C libft clean
 
 fclean: clean
-	@echo "\033[0;31m Cleaning Project files"
+	@echo "\033[0;31mCleaning Project files Including Libft"
 	@rm -rf $(NAME)
 	@make -C libft fclean
 

@@ -12,6 +12,17 @@
 
 #include "../includes/ft_ls.h"
 
+/*
+** The reson I separated this function is to check for memory leaks at the end of the main.
+** If the main function had this function's content inside, Then the good old while(1) would
+** not be able to catch the memory leaks.
+*/
+
+/*
+ ** The  Function below will separate the functionality of the program if the parameters
+ ** are empty and only have the ./ft_ls command in it.
+ */
+
 void	init_program(int ac, char **av)
 {
 	t_info *program_info;
